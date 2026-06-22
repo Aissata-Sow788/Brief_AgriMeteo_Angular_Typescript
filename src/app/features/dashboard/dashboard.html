@@ -1,0 +1,82 @@
+<div class="p-6">
+
+  <!-- 🗺️ Carte du Sénégal -->
+
+  <h2 >
+    Carte des régions
+  </h2>
+
+  <div class="w-full h-[500px]">
+    <app-map (regionSelectionnee)="chargerMeteo($event)"></app-map>
+  </div>
+</div>>
+
+  <!-- 🌙 Panneau météo overlay (flotte au-dessus, n'apparaît qu'au clic) -->
+  <div class="fixed top-24 right-6 z-50">
+
+    @if (chargement) {
+      <div class="weather-overlay bg-white rounded-2xl shadow-2xl px-6 py-4">
+        <p class="text-blue-500 font-medium animate-pulse">Chargement...</p>
+      </div>
+    }
+
+    @if (erreur) {
+      <div class="weather-overlay bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-2xl shadow-2xl">
+        {{ erreur }}
+      </div>
+    }
+
+    @if (meteo; as m) {
+      <div class="weather-overlay relative w-72 rounded-[32px] overflow-hidden weather-card-bg font-body text-white">
+
+        <div class="absolute left-0 top-0 h-full w-1.5"
+          [style.background]="m.main.temp >= 35 ? '#f87171' : m.main.temp >= 28 ? '#fbbf24' : '#34d399'">
+        </div>
+
+        <div class="relative px-7 pt-7 pb-6 pl-8">
+
+          <div class="flex items-center justify-between mb-8">
+            <span class="text-[11px] uppercase tracking-[0.18em] text-cyan-200/60">AgriMeteo</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full border text-white/70"
+              [style.borderColor]="m.main.temp >= 35 ? 'rgba(248,113,113,.4)' : m.main.temp >= 28 ? 'rgba(251,191,36,.4)' : 'rgba(52,211,153,.4)'">
+              {{ m.main.temp >= 35 ? 'Risque élevé' : m.main.temp >= 28 ? 'Vigilance' : 'Conditions stables' }}
+            </span>
+          </div>
+
+          <div class="relative flex justify-center mb-2">
+            <div class="absolute w-32 h-32 rounded-full icon-halo -top-4"></div>
+            <img
+              [src]="'https://openweathermap.org/img/wn/' + m.weather[0].icon + '@2x.png'"
+              class="relative w-20 h-20 drop-shadow-[0_8px_16px_rgba(0,0,0,0.4)]"
+              alt="icône météo">
+          </div>
+
+          <!-- température avec 2 décimales max -->
+          <div class="text-center mb-1">
+            <span class="font-display text-6xl font-semibold tracking-tight">{{ m.main.temp.toFixed(2) }}</span>
+            <span class="font-display text-2xl font-light align-top text-cyan-200/80">°C</span>
+          </div>
+
+          <p class="text-center font-display font-medium text-lg mb-0.5">{{ regionActuelle?.nom }}</p>
+          <p class="text-center text-sm text-white/50 capitalize mb-7">{{ m.weather[0].description }}</p>
+
+          <div class="flex gap-2">
+            <div class="flex-1 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 px-3 py-3 text-center">
+              <p class="text-[10px] uppercase tracking-wide text-white/40 mb-1">Humidité</p>
+              <p class="font-display font-semibold text-base">{{ m.main.humidity }}%</p>
+            </div>
+            <div class="flex-1 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 px-3 py-3 text-center">
+              <p class="text-[10px] uppercase tracking-wide text-white/40 mb-1">Vent</p>
+              <p class="font-display font-semibold text-base">{{ m.wind.speed }} <span class="text-xs">m/s</span></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    }
+
+  </div>
+
+
+
+<app-risk-analysis></app-risk-analysis>

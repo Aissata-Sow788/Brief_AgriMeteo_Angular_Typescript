@@ -1,0 +1,16 @@
+path {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+path:hover {
+  fill: #22c55e;
+}
+.selected {
+  fill: orange !important;
+}
+svg {
+  width: 170%;
+  height: auto;
+  display: block;
+}

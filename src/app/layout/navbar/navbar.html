@@ -1,0 +1,37 @@
+<header class="relative weather-card-bg px-6 py-4 flex items-center justify-between overflow-hidden">
+
+  <!-- léger reflet "verre", comme sur la carte météo -->
+  <div class="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none"></div>
+
+  <!-- logo + nom -->
+  <div class="relative flex items-center gap-3">
+    <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-md shadow-emerald-900/40">
+      <svg viewBox="0 0 24 24" class="w-5 h-5 text-white">
+        <path d="M12 22c0-6 4-9 8-10-1 5-3 9-8 10z" fill="currentColor"/>
+        <path d="M12 22c0-7-4-11-8-12 1 6 3 10 8 12z" fill="currentColor" opacity="0.7"/>
+      </svg>
+    </div>
+    <div>
+      <p class="font-display text-lg font-semibold text-white leading-tight">AgriMeteo</p>
+      <p class="text-xs text-white/50 leading-tight">Suivi climatique agricole — Sénégal</p>
+    </div>
+  </div>
+
+  <!-- date + statut en direct -->
+  <div class="relative flex items-center gap-4">
+    <span class="hidden sm:inline text-sm text-white/60 capitalize">
+      {{ today.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }) }}
+    </span>
+    <span class="flex items-center gap-2 text-xs font-medium text-emerald-300 bg-emerald-400/10 border border-emerald-400/20 rounded-full px-3 py-1.5">
+      <span class="relative flex h-2 w-2">
+        <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+      </span>
+      Données en direct
+    </span>
+  </div>
+
+  <!-- trait dégradé en bas -->
+  <div class="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500"></div>
+
+</header>

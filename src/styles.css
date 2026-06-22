@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+.weather-card-bg {
+  background:
+    radial-gradient(120% 120% at 85% -10%, rgba(79, 216, 232, 0.30), transparent 60%),
+    radial-gradient(100% 100% at 0% 100%, rgba(20, 39, 90, 0.85), transparent 70%),
+    linear-gradient(165deg, #0B1330 0%, #0B1330 55%, #060a1a 100%);
+}
+@keyframes panelEnter {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.weather-overlay {
+  animation: panelEnter 200ms ease-out;
+}
