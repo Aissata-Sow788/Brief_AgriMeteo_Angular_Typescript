@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import {
-  ChartConfiguration,
-  ChartOptions,
-  ChartType
-} from 'chart.js';
+
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
+import { Chart, registerables } from 'chart.js';
+
+Chart.register(...registerables);
 
 
 @Component({
@@ -14,25 +13,50 @@ import { BaseChartDirective } from 'ng2-charts';
   templateUrl: './risk-analysis.html',
   styleUrl: './risk-analysis.css'
 })
-export class RiskAnalysis {
+export class RiskAnalysis implements OnInit, AfterViewInit {
+  chart: any;
 
-  public chartType: 'bar' = 'bar';
+  constructor() { }
 
-  public chartData: ChartConfiguration<'bar'>['data'] = {
-    labels: ['Dakar', 'Thiès', 'Saint-Louis', 'Kaolack', 'Ziguinchor'],
-    datasets: [
-      {
-        label: 'Température (°C)',
-        data: [31, 29, 32, 35, 30]
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.createChart();
+  }
+
+  createChart() {
+    // Calcul des 7 prochains jours à titre d'exemple
+    const labels = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+
+    // Données de prévisions (ex: niveau de stock, ventes, budget)
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Prévisions à 7 jours',
+        data: [65, 59, 80, 81, 56, 55, 40],
+        fill: false,
+        borderColor: 'rgb(173, 192, 75)',
+                backgroundColor: [
+          '#4CAF50',
+          '#FFC107',
+          '#2196F3'
+        ],
+        tension: 0.1
+      }]
+    };
+
+    this.chart = new Chart("canvasPrevisions", {
+      type: 'bar', // ou 'bar' pour un histogramme
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        }
       }
-    ]
-  };
-
-  public chartOptions: ChartOptions<'bar'> = {
-    responsive: true,
-    maintainAspectRatio: false
-  };
-
-
-
+    });
+  }
 }
