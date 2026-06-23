@@ -8,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class Navbar {
   today = new Date();
+  // afficher l'heure aussi en format 24h 
+  currentTime = new Date().toLocaleTimeString('fr-FR', { hour: 'numeric', minute: 'numeric', hour12: false });
 }

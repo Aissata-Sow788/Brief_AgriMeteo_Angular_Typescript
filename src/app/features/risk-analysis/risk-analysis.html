@@ -1,11 +1,7 @@
 @if (risk && prediction) {
-  <div class="risk-wrapper">
 
-    <!-- BADGE INDICE DE RISQUE -->
-    <div class="risk-header">
-      <span class="risk-section-label">🌾 Indice de Risque Agricole</span>
-    </div>
-
+  <!-- BADGE RISQUE — affiché si modeGraphique = false -->
+  @if (!modeGraphique) {
     <div class="risk-badge" [style.border-color]="risk.color">
       <div class="risk-info">
         <span class="risk-score" [style.color]="risk.color">{{ risk.score }}<span class="risk-unit">/100</span></span>
@@ -13,26 +9,16 @@
       </div>
       <div class="risk-dot" [style.background-color]="risk.color"></div>
     </div>
-
-    <!-- BARRE DE PROGRESSION (jauge) -->
     <div class="risk-bar-track">
-      <div
-        class="risk-bar-fill"
-        [style.width.%]="risk.score"
-        [style.background-color]="risk.color"
-      ></div>
+      <div class="risk-bar-fill" [style.width.%]="risk.score" [style.background-color]="risk.color"></div>
     </div>
     <div class="risk-bar-labels">
-      <span>Faible</span>
-      <span>Modéré</span>
-      <span>Élevé</span>
+      <span>Faible</span><span>Modéré</span><span>Élevé</span>
     </div>
+  }
 
-    <!-- GRAPHIQUE 7 JOURS -->
-    <div class="chart-section">
-      <p class="chart-label">📈 Températures simulées — 7 derniers jours</p>
-      <canvas #chartCanvas class="chart-canvas"></canvas>
-    </div>
-
-  </div>
+  <!-- GRAPHIQUE — affiché si modeGraphique = true -->
+  @if (modeGraphique) {
+    <canvas #chartCanvas class="chart-canvas"></canvas>
+  }
 }

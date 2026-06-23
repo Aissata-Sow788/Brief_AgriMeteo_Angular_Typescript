@@ -29,6 +29,7 @@ export class RiskAnalysis implements OnChanges, AfterViewInit {
   // Reçoit les données météo depuis le Dashboard parent
   @Input() meteo: WeatherResponse | null = null;
   @Input() regionNom: string = '';
+  @Input() modeGraphique: boolean = false; // false = badge risque, true = graphique
 
   @ViewChild('chartCanvas') chartCanvas!: ElementRef<HTMLCanvasElement>;
 
