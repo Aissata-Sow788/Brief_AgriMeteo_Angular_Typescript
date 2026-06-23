@@ -11,10 +11,11 @@
   @if (meteo; as m) {
     <div class="grid grid-cols-1 md:grid-cols-2 gap-30 mt-6 mr-20">
 
-      <!-- 🌾 INDICE DE RISQUE AGRICOLE — bas gauche -->
-      <div class="rounded-2xl bg-white/5 border border-green/10 p-10 text-white">
-        <p class="text-[14px] uppercase tracking-widest text-emerald-600 mb-8 font-bold">
-          Indice de Risque Agricole
+     <!-- INDICE DE RISQUE AGRICOLE — bas gauche -->
+      <div class="rounded-2xl border border-white/10 p-5 text-white"
+          style="background: linear-gradient(160deg, #0f2027 0%, #203a43 100%);">
+        <p class="text-[10px] uppercase tracking-widest text-emerald-400 mb-4 font-semibold">
+         Indice de Risque Agricole
         </p>
         <app-risk-analysis
           [meteo]="m"
@@ -23,9 +24,10 @@
         </app-risk-analysis>
       </div>
 
-      <!-- 📈 GRAPHIQUE 7 JOURS — bas droite  -->
-      <div class="rounded-2xl bg-white/5 border border-green/10 p-10 text-white">
-        <p class="text-[14px] uppercase tracking-widest text-cyan-600 mb-8 font-bold">
+      <!--  GRAPHIQUE 7 JOURS — bas droite -->
+      <div class="rounded-2xl border border-white/10 p-5 text-white"
+          style="background: linear-gradient(160deg, #0f2027 0%, #203a43 100%);">
+        <p class="text-[10px] uppercase tracking-widest text-cyan-400 mb-4 font-semibold">
           Températures simulées — 7 derniers jours
         </p>
         <app-risk-analysis
@@ -41,7 +43,7 @@
 </div>
 
 
-<!-- 🌙 Panneau météo overlay FIXE à droite -->
+<!--  Panneau météo overlay FIXE à droite -->
 <div class="fixed top-24 right-6 z-50">
 
   @if (chargement) {

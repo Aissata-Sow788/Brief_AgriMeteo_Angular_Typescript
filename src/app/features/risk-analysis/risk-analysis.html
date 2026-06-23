@@ -1,24 +1,34 @@
 @if (risk && prediction) {
 
-  <!-- BADGE RISQUE — affiché si modeGraphique = false -->
+  <!-- MODE BADGE RISQUE (bas gauche) -->
   @if (!modeGraphique) {
     <div class="risk-badge" [style.border-color]="risk.color">
       <div class="risk-info">
-        <span class="risk-score" [style.color]="risk.color">{{ risk.score }}<span class="risk-unit">/100</span></span>
+        <span class="risk-score" [style.color]="risk.color">
+          {{ risk.score }}<span class="risk-unit">/100</span>
+        </span>
         <span class="risk-label">{{ risk.label }}</span>
       </div>
       <div class="risk-dot" [style.background-color]="risk.color"></div>
     </div>
+
     <div class="risk-bar-track">
-      <div class="risk-bar-fill" [style.width.%]="risk.score" [style.background-color]="risk.color"></div>
+      <div class="risk-bar-fill"
+        [style.width.%]="risk.score"
+        [style.background-color]="risk.color">
+      </div>
     </div>
+
     <div class="risk-bar-labels">
-      <span>Faible</span><span>Modéré</span><span>Élevé</span>
+      <span>Faible</span>
+      <span>Modéré</span>
+      <span>Élevé</span>
     </div>
   }
 
-  <!-- GRAPHIQUE — affiché si modeGraphique = true -->
+  <!-- MODE GRAPHIQUE (bas droite) -->
   @if (modeGraphique) {
     <canvas #chartCanvas class="chart-canvas"></canvas>
   }
+
 }
