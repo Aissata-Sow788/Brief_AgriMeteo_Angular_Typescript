@@ -1,8 +1,108 @@
-.chart-wrapper {
-  width: 100%;
-  max-width: 600px;
-  height: 300px;
-  margin: auto;
-  margin-top: 250px;
-  margin-left: 650px;
+.risk-wrapper {
+  margin-top: 20px;
+  padding: 0 4px;
+}
+
+.risk-header {
+  margin-bottom: 10px;
+}
+
+.risk-section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+}
+
+.risk-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid;
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  transition: border-color 0.4s ease;
+}
+
+.risk-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.risk-score {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: color 0.4s ease;
+}
+
+.risk-unit {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.6;
+  margin-left: 2px;
+}
+
+.risk-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.risk-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px currentColor;
+  transition: background-color 0.4s ease;
+}
+
+/* Jauge barre */
+.risk-bar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.risk-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.7s ease, background-color 0.4s ease;
+}
+
+.risk-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 20px;
+}
+
+/* Graphique */
+.chart-section {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.chart-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.chart-canvas {
+  width: 100% !important;
+  max-height: 180px;
 }

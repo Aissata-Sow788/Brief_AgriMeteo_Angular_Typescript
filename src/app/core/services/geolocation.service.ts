@@ -31,7 +31,7 @@ export class GeolocationService {
         (error) => {
           observer.error(error);
         },
-        { timeout: 8000, enableHighAccuracy: false }
+        { timeout: 5000, enableHighAccuracy: false }
       );
     });
   }

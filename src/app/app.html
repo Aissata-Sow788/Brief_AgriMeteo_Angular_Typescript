@@ -1,17 +1,7 @@
-<div class="h-screen flex flex-col">
-
-
+<div class="h-screen flex flex-col overflow-hidden">
   <app-navbar></app-navbar>
-
-  <div class="flex flex-1">
-
-    <main class="flex-1 bg-gray-100 p-4">
-      <router-outlet></router-outlet>
-    </main>
-  </div>
-   <app-dashboard></app-dashboard>
-
-
+  <main class="flex-1 overflow-y-auto">
+    <app-dashboard></app-dashboard>
+  </main>
   <app-footer></app-footer>
-
 </div>
