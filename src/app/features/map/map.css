@@ -15,3 +15,16 @@ svg {
   display: block;
   margin-bottom: 80px;
 }
+
+.region-label {
+  font-size: 11px;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  fill: #ffffff;
+  text-anchor: middle;
+  pointer-events: none;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  paint-order: stroke;
+  stroke: rgba(0,0,0,0.5);
+  stroke-width: 3px;
+}
