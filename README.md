@@ -4,6 +4,12 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 ## Lien deploiement sur vercel
 - https://brief-agri-meteo-angular-typescript.vercel.app/
 
+## Lien demonstration video
+- https://drive.google.com/drive/folders/17MBzVWS81wD3qhgBCsdDwby6eloU8O7i?usp=sharing
+
+## Lien maquette sur Figma
+- https://www.figma.com/design/pneiErM78LJvSAf3ncCbpm/Sans-titre?node-id=1-290&t=eKO6CZ5CJUnfRFOh-1
+
 ## Development server
 
 To start a local development server, run:
