@@ -1,6 +1,8 @@
 # AgriMeteo
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.0.
+## Lien deploiement sur vercel
+- https://brief-agri-meteo-angular-typescript.vercel.app/
 
 ## Development server
 
